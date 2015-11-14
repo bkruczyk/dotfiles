@@ -12,6 +12,8 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
 ;; associete PKGBUILD files with pkgbuild-mode
 (setq auto-mode-alist (append '(("PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
 
@@ -32,20 +34,25 @@
 (setq require-final-newline nil)
 (setq mode-require-final-newline nil)
 
-;;; ui
-(menu-bar-mode 0)                                                                       ;; disable menubar
-(scroll-bar-mode 0)                                                                     ;; disable scrollbar
-(setq ring-bell-function 'ignore)                                                       ;; silent emacs
-(setq x-underline-at-descent-line t)                                                    ;; better underline
-(global-hl-line-mode 0)                                                                 ;; disable line highlight
-(set-face-attribute 'default nil                                                        ;; set font of choice
+(global-subword-mode)
+
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 10)))
+
+(setq scroll-conservatively 1000)
+(setq scroll-preserve-screen-position t)
+
+;; ui
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(setq ring-bell-function 'ignore)
+(setq x-underline-at-descent-line t)
+(global-hl-line-mode 0)
+(set-face-attribute 'default nil
                     :family "Monaco"
                     :height 90
                     :weight 'regular)
-
-(add-to-list 'custom-theme-load-path
-             (expand-file-name "themes" user-emacs-directory))
-(load-theme 'dorsey)
+(load-theme 'badwolf)
 
 (defun usr/reduce-theme (color)
   "Set some UI elements with given COLOR."
@@ -54,33 +61,34 @@
     (set-face-attribute 'fringe nil :background color)
     (set-face-attribute 'linum nil :background color)))
 
-;;; org-mode
 (setq org-directory "~/code/org")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 
-;; (setq org-clock-continuously t)                                         ;;
-;; (setq org-clock-persist 'history)                                       ;; persistent clocking
-;; (org-clock-persistence-insinuate)                                       ;;
+(setq flycheck-highlighting-mode nil)
 
-;;; company-mode
 (global-company-mode)
-(global-set-key (kbd "C-c c") #'company-complete)
+(global-set-key (kbd "C-c SPC") #'company-complete)
 
-;;; anzu-mode
 (global-set-key (kbd "C-c M-%") #'anzu-query-replace-at-cursor)
 
-;;; web-mode
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
 
-;;; whitespace-mode
 (setq whitespace-style '(face tabs empty trailing))
 
-;;; git
 (global-git-commit-mode)
 
-;;; which-key
 (which-key-mode)
+
+(which-function-mode 0)
+(beacon-mode 0)
+
+(diminish 'which-key-mode)
+(diminish 'projectile-mode)
+(diminish 'prelude-mode)
+(diminish 'company-mode)
+(diminish 'subword-mode)
+(diminish 'flycheck-mode)
 
 (provide 'personal)
 ;;; personal.el ends here
