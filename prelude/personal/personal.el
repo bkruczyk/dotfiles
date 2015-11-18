@@ -74,7 +74,7 @@
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
 
-(setq whitespace-style '(face tabs empty trailing))
+(setq whitespace-style '(face tabs empty trailing line))
 
 (global-git-commit-mode)
 
@@ -89,6 +89,7 @@
 (diminish 'company-mode)
 (diminish 'subword-mode)
 (diminish 'flycheck-mode)
+(diminish 'whitespace-mode)
 
 (provide 'personal)
 ;;; personal.el ends here
