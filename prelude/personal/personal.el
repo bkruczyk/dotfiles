@@ -44,6 +44,8 @@
 (setq scroll-conservatively 1000)
 (setq scroll-preserve-screen-position t)
 
+(setq echo-keystrokes 0.2)
+
 ;; ui
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
