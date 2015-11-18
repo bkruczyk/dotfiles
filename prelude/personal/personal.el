@@ -27,11 +27,6 @@
 ;; do not use .Xresources or .Xdefaults
 (setq inhibit-x-resources t)
 
-;; use vi-like movement for words
-(require 'viper-cmd)
-(global-set-key (kbd "M-f") 'viper-forward-word)
-(global-set-key (kbd "M-b") 'viper-backward-word)
-
 ;; do not add newline when closing file
 (setq require-final-newline nil)
 (setq mode-require-final-newline nil)
