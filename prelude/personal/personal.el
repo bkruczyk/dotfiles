@@ -5,7 +5,9 @@
 (defvar default-packages '(pkgbuild-mode
                            markdown-mode
                            sublime-themes
-                           which-key)
+                           which-key
+                           paradox
+                           ido-vertical-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p default-packages)
@@ -79,6 +81,8 @@
 (global-git-commit-mode)
 
 (which-key-mode)
+
+(ido-vertical-mode)
 
 (which-function-mode 0)
 (beacon-mode 0)
