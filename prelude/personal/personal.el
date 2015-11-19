@@ -41,6 +41,8 @@
 
 (setq echo-keystrokes 0.2)
 
+(fringe-mode '(nil . 0))
+
 ;; ui
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
