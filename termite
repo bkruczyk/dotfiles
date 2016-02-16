@@ -12,49 +12,28 @@ clickable_url = true
 font = Monaco 9
 scrollback_lines = 1000
 search_wrap = true
-# icon_name = terminal
-# geometry = 640x480
-
-# "system", "on" or "off"
-cursor_blink = system
-
-# "block", "underline" or "ibeam"
+geometry = 640x480
+cursor_blink = off
 cursor_shape = block
 
-# $BROWSER is used by default
-#browser = firefox
-
-# word characters used for word selection
-# (default if unset: all graphic non-punctuation/space characters)
-#word_chars = -A-Za-z0-9,./?%&#:_=+@~
-
-# set size hints for the window
-#size_hints = false
-
-# emit escape sequences for other keys modified by Control
-#modify_other_keys = false
-
-# Base16 eighties
+# Badwolf alternate take
 [colors]
-foreground      = #d9cec3
-foreground_bold = #d9cec3
-#foreground_dim = #888888
+foreground      = #f8f6f2
+foreground_bold = #f8f6f2
 cursor          = #0a9dff
-background      = #222120
-
-# highlight = #d6d6d6
+background      = #1c1b1a
 
 # black
-color0  = #2d2d2d
-color8  = #2d2d2d
+color0  = #1c1b1a
+color8  = #1c1b1a
 
 # red
 color1  = #ff2c4b
 color9  = #ff2c4b
 
 # green
-color2  = #c7915b
-color10 = #c7915b
+color2  = #8cffba
+color10 = #8cffba
 
 # yellow
 color3  = #f4cf86
@@ -73,17 +52,8 @@ color6  = #0a9dff
 color14 = #0a9dff
 
 # white
-color7  = #d9cec3
-color15 = #d9cec3
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+color7  = #f8f6f2
+color15 = #f8f6f2
 
 # Local Variables:
 # eval: (conf-mode)

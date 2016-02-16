@@ -60,9 +60,7 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
 # emacs
-alias e="emacsclient --tty --alternate-editor ''"
-alias ec="emacsclient --create-frame --no-wait --alternate-editor ''"
-alias emacsd='emacs --daemon'
+alias e="emacs -nw -bg none"
 
 # git
 alias gt='git log --graph --decorate --pretty=oneline --abbrev-commit'
