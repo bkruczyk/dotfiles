@@ -39,9 +39,13 @@ color10 = #8cffba
 color3  = #f4cf86
 color11 = #f4cf86
 
-# blue
+# blue orange
 color4  = #ffa724
 color12 = #ffa724
+
+# # true blue
+# color4  = #0a9dff
+# color12 = #0a9dff
 
 # magenta
 color5  = #ff9eb8
