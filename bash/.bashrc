@@ -73,8 +73,8 @@ alias a='pacaur'
 ### environmental variables
 export EDITOR=~/bin/EDITOR
 export TERM=xterm-256color
-export GTK_IM_MODULE=xim        # make sure that GTK+ apps do not use own tables with XCompose
-export XMODIFIERS=emacs         # get XCompose key working in emacs
+# export GTK_IM_MODULE=xim        # make sure that GTK+ apps do not use own tables with XCompose
+# export XMODIFIERS=emacs         # get XCompose key working in emacs
 export WINEARCH=win32
 export M2_HOME=/opt/maven
 
