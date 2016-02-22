@@ -5,13 +5,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-# twm &
-# xclock -geometry 50x50-1+1 &
-# xterm -geometry 80x50+494+51 &
-# xterm -geometry 80x20+494-0 &
-# exec xterm -geometry 80x66+0+0 -name login
-
-## some applications that should be run in the background
 # xscreensaver &
 xsetroot -cursor_name left_ptr &
 
@@ -20,4 +13,5 @@ feh --bg-scale ~/Obrazy/meh.ro11761.jpg &
 rofi -key-run F8 &
 sxhkd &
 
-exec xmonad
+dotfiles/bar/bar.sh | lemonbar -g 1920x30 -f 'monaco:size=9' &
+xmonad

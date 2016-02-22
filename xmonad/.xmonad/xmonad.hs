@@ -1,11 +1,20 @@
 import XMonad
-import XMonad.Layout.Spacing
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
 
-main = xmonad $ defaultConfig
-  { terminal           = "termite"
-  , focusFollowsMouse  = True
-  , modMask            = mod4Mask
-  , borderWidth        = 4
-  , focusedBorderColor = "#0a9dff" -- tardis
-  , normalBorderColor  = "#d9cec3" -- brightgravel
-  }
+myLayoutHook = avoidStruts $ layoutHook defaultConfig
+myManageHook = manageDocks <+> manageHook defaultConfig
+
+main :: IO()
+main = do
+  xmonad $ ewmh defaultConfig
+    { terminal           = "termite"
+    , focusFollowsMouse  = True
+    , modMask            = mod4Mask
+    , borderWidth        = 4
+    , layoutHook         = myLayoutHook
+    , manageHook         = myManageHook
+    -- , handleEventHook    = fullscreenEventHook
+    , focusedBorderColor = "#0a9dff" -- tardis
+    , normalBorderColor  = "#d9cec3" -- brightgravel
+    }
