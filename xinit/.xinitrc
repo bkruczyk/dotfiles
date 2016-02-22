@@ -18,5 +18,6 @@ xsetroot -cursor_name left_ptr &
 setxkbmap -layout pl -option terminate:ctrl_alt_bksp -option ctrl:nocaps
 feh --bg-scale ~/Obrazy/meh.ro11761.jpg &
 rofi -key-run F8 &
+sxhkd &
 
 exec xmonad

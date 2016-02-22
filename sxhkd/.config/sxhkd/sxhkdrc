@@ -1,0 +1,2 @@
+super + {i,d}
+    pamixer -{i,d} 10
