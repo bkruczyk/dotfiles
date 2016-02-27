@@ -10,7 +10,7 @@ setxkbmap -layout pl -option terminate:ctrl_alt_bksp -option ctrl:nocaps
 sxhkd &
 
 xsetroot -cursor_name left_ptr &
-feh --bg-scale ~/Obrazy/meh.ro11761.jpg &
+feh --bg-scale dotfiles/wall.jpg
 eval `ssh-agent -s`
 
 exec bspwm
