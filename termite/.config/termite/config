@@ -12,7 +12,7 @@ clickable_url = true
 font = Monaco 9
 scrollback_lines = 1000
 search_wrap = true
-geometry = 640x480
+# geometry = 640x480
 cursor_blink = off
 cursor_shape = block
 
