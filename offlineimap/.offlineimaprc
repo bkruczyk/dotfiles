@@ -1,0 +1,39 @@
+[general]
+ui = ttyui
+accounts = Gmail
+fsync = False
+pythonfile=~/.offlineimap.py
+
+[Account Gmail]
+localrepository = Local
+remoterepository = Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository Local]
+type = Maildir
+localfolders = ~/.mail/bartlomiej.kruczyk.at.gmail.com
+nametrans = lambda folder: {'drafts': '[Gmail]/Wersje robocze',
+                            'sent':   '[Gmail]/Wys&AUI-ane',
+                            'starred':'[Gmail]/Oznaczone gwiazdk&AQU-',
+                            'trash':  '[Gmail]/Kosz'
+                            }.get(folder, folder)
+
+[Repository Remote]
+readonly=True
+maxconnections = 1
+type = Gmail
+remoteuser = bartlomiej.kruczyk@gmail.com
+remotepasseval = get_pass("bartlomiej.kruczyk@gmail.com")
+realdelete = no
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+nametrans = lambda folder: {'[Gmail]/Wersje robocze': 'drafts',
+                            '[Gmail]/Wys&AUI-ane': 'sent',
+                            '[Gmail]/Oznaczone gwiazdk&AQU-': 'starred',
+                            '[Gmail]/Kosz': 'trash',
+                            }.get(folder, folder)
+
+folderfilter = lambda folder: folder not in ['[Gmail]/Wszystkie',
+                                             '[Gmail]/Wa&AXw-ne',
+                                             '[Gmail]/Spam',
+                                             '[Gmail]/Czat']
