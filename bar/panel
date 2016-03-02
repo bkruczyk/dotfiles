@@ -27,6 +27,15 @@ network() {
         echo "$int" || echo "$disconnected"
 }
 
+battery() {
+    BATC=/sys/class/power_supply/BAT1/capacity
+    BATS=/sys/class/power_supply/BAT1/status
+
+    test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+
+    sed -n p $BATC
+}
+
 bspc config top_padding $PANEL_HEIGHT
 bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
@@ -45,6 +54,13 @@ while :; do
     echo 'N'$(network)
     sleep 10
 done > "$PANEL_FIFO" &
+
+if [ -d /sys/class/power_supply/BAT1 ]; then
+    while :; do
+    echo 'B'$(battery)
+    sleep 10
+    done > "$PANEL_FIFO" &
+fi
 
 . dotfiles/bar/panel_colors
 
