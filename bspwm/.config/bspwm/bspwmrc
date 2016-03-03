@@ -1,13 +1,13 @@
 #!/bin/sh
 
-bspc config focused_border_color "#0a9dff"
-# bspc config focused_border_color "#ff9eb8"
+# bspc config focused_border_color "#0a9dff"
+bspc config focused_border_color "#ff9eb8"
 
-bspc config border_width         4
-# bspc config window_gap           12
+bspc config border_width         6
+bspc config window_gap           24
 
 # bspc config split_ratio          0.52
-# bspc config borderless_monocle   true
+bspc config borderless_monocle   true
 # bspc config gapless_monocle      true
 bspc config focus_by_distance    true
 # bspc config history_aware_focus  true
@@ -20,8 +20,7 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
 
-bspc rule -a Evolution desktop=mail
-bspc rule -a Pidgin desktop=im 
-bspc rule -a spotify desktop=music
+bspc rule -a Pidgin desktop=^9
+bspc rule -a Evolution desktop=^10
 
 dotfiles/bar/panel &> .panel.log &

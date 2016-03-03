@@ -38,11 +38,11 @@ battery() {
 }
 
 cpuload() {
-    ps -A -o pcpu | tail -n+2 | paste -sd+ | bc | tr '\n' '/' | cat <(echo scale=2) - <(echo $(nproc)) | bc
+    ps -A -o pcpu | tail -n+2 | paste -sd+ | bc
 }
 
 memused() {
-    read t f <<< `grep -E 'Mem(Total|Free)' /proc/meminfo |awk '{print $2}'`
+    read t f <<< `grep -E 'Mem(Total|Available)' /proc/meminfo |awk '{print $2}'`
     bc <<< "scale=2; 100 - $f / $t * 100" | cut -d. -f1
 }
 
@@ -62,23 +62,23 @@ done > "$PANEL_FIFO" &
 
 while :; do
     echo 'N'$(network)
-    sleep 10
+    sleep 5
 done > "$PANEL_FIFO" &
 
 while :; do
     echo 'M'$(memused)
-    sleep 5
+    sleep 2
 done > "$PANEL_FIFO" &
 
 while :; do
     echo 'C'$(cpuload)
-    sleep 5
+    sleep 2
 done > "$PANEL_FIFO" &
 
 if [ -d /sys/class/power_supply/BAT1 ]; then
     while :; do
     echo 'B'$(battery)
-    sleep 10
+    sleep 2
     done > "$PANEL_FIFO" &
 fi
 

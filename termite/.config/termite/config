@@ -9,8 +9,8 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Monaco 9
-scrollback_lines = 1000
+font = tewi 9
+scrollback_lines = 10000
 search_wrap = true
 # geometry = 640x480
 cursor_blink = off
@@ -25,15 +25,20 @@ background      = #1c1b1a
 
 # black
 color0  = #1c1b1a
-color8  = #1c1b1a
+color8  = #666462
 
 # red
 color1  = #ff2c4b
 color9  = #ff2c4b
 
-# green
-color2  = #8cffba
-color10 = #8cffba
+
+# # green (saltwatertaffy)
+# color2  = #8cffba
+# color10 = #8cffba
+
+# green (bottle)
+color2  = #34B068
+color10 = #34B068
 
 # yellow
 color3  = #f4cf86
@@ -57,7 +62,7 @@ color14 = #0a9dff
 
 # white
 color7  = #f8f6f2
-color15 = #f8f6f2
+color15 = #d9cec3
 
 # Local Variables:
 # eval: (conf-mode)

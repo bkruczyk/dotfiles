@@ -6,20 +6,16 @@ super + ctrl + Escape
 super + {minus,plus}
         pamixer -{d,i} 10
 
+# focus/move to the next node
+super + {c,v}
+	bspc node -{f,s} next
+
 # # focus the next/previous node
 # super + {j,k}
 # 	bspc node -f {prev,next}
 
 # super + {h,l}
 # 	bspc node -s {prev,next}
-
-# # preselect the direction
-# super + shift + {h,j,k,l}
-# 	bspc node -p {west,south,north,east}
-
-# # cancel the preselection for the focused node
-# super + shift + space
-# 	bspc node -p cancel
 
 #
 # wm independent hotkeys
@@ -92,10 +88,6 @@ super + {p,b,comma,period}
 # # focus the next/previous node
 # super + {_,shift + }c
 # 	bspc node -f {next,prev}
-
-# focus/move to the next node
-super + {_,shift + }c
-	bspc node -{f,s} next
 
 # focus the next/previous desktop
 super + bracket{left,right}
