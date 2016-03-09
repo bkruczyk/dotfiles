@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/env bash
 
 if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
 	printf "%s\n" "The panel is already running." >&2
@@ -28,17 +28,17 @@ network() {
 }
 
 battery() {
-    BATC=/sys/class/power_supply/BAT1/capacity
-    BATS=/sys/class/power_supply/BAT1/status
+    BATC=$(cat /sys/class/power_supply/BAT1/capacity)
+    BATS=$(cat /sys/class/power_supply/BAT1/status)
 
-    test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+    read ac <<< `echo -n "power $BATS"`
+    read status <<< `echo -n "status $BATC"`
 
-    sed -n p $BATC
+    echo -n "$ac $status"
 }
 
 cpuload() {
-    LINE=`ps -eo pcpu |grep -vE '^\s*(0.0|%CPU)' |sed -n '1h;$!H;$g;s/\n/ +/gp'`
-    bc <<< $LINE
+    ps -A -o pcpu | tail -n+2 | paste -sd+ | bc | tr '\n' '/' | cat <(echo scale=2) - <(echo $(nproc)) | bc
 }
 
 memused() {

@@ -1,10 +1,10 @@
 # less
 export LESS='--ignore-case --squeeze-blank-lines --RAW-CONTROL-CHARS --no-init --LONG-PROMPT'
-export LESS_TERMCAP_mb=$'\E[34m'           # begin blinking
-export LESS_TERMCAP_md=$'\E[34m'           # begin bold
+export LESS_TERMCAP_mb=$'\E[35m'           # begin blinking
+export LESS_TERMCAP_md=$'\E[35m'           # begin bold
 export LESS_TERMCAP_me=$'\E[0m'            # end mode
 export LESS_TERMCAP_se=$'\E[0m'            # end standout-mode
-export LESS_TERMCAP_so=$'\E[46;30m'        # begin standout-mode - info box
+export LESS_TERMCAP_so=$'\E[43;30m'        # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'            # end underline
 export LESS_TERMCAP_us=$'\E[31m'           # begin underline
 
