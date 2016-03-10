@@ -1,0 +1,19 @@
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+
+rofi.font: tewi 9
+rofi.lines: 10
+rofi.width: 24
+rofi.hide-scrollbar: true
+rofi.color-window: #242321, #35322d
+rofi.color-normal: #242321, #f8f6f2, #35322d, #0a9dff, #f8f6f2
+rofi.color-active: #ff9eb8, #f8f6f2, #35322d, #0a9dff, #f8f6f2
+rofi.color-urgent: #ff2c4b, #f8f6f2, #35322d, #0a9dff, #f8f6f2
+
+! Local Variables:
+! eval: (conf-xdefaults-mode)
+! eval: (rainbow-mode +1)
+! End:

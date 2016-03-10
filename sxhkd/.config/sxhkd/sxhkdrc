@@ -31,32 +31,11 @@ super + Return
 
 # program launcher
 super + r
-	rofi -show run 
-             # -font "monaco 11" \
-             # -bg "#333333" \
-             # -fg "#f8f6f2" \
-             # -hlfg "#ffa724" \
-             # -hlbg "#333333" \
-             # -lines 10 \
-             # -width 30 \
-             # -bc "#ff9eb8" \
-             # -hide-scrollbar true
+	rofi -show run
 
 # # switch windows
 super + e
 	rofi -show window
-#              -font "monaco 11" \
-#              -bg "#333333" \
-#              -fg "#f8f6f2" \
-#              -hlfg "#ffa724" \
-#              -hlbg "#333333" \
-#              -lines 10 \
-#              -width 30 \
-#              -bc "#ff9eb8" \
-#              -hide-scrollbar true \
-#              -bg-active "#0a9dff" \0
-#              -fg-active "#000000"
-
 
 # make sxhkd reload its configuration files:
 super + Escape

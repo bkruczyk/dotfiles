@@ -5,6 +5,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
+xrdb -load .Xresources
+
 setxkbmap -layout pl -option terminate:ctrl_alt_bksp -option ctrl:nocaps
 
 sxhkd &
