@@ -14,6 +14,7 @@ sxhkd &
 xsetroot -cursor_name left_ptr &
 unclutter &
 feh --bg-scale dotfiles/wall.jpg
+compton --shadow --no-dnd-shadow --daemon
 
 
 exec bspwm
