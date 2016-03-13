@@ -46,6 +46,10 @@ memused() {
     bc <<< "scale=2; 100 - $f / $t * 100" | cut -d. -f1
 }
 
+inbox() {
+    notmuch search tag:unread | wc -l
+}
+
 bspc config top_padding $PANEL_HEIGHT
 bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
@@ -75,6 +79,11 @@ while :; do
     sleep 2
 done > "$PANEL_FIFO" &
 
+while :; do
+    echo 'I'$(inbox)
+    sleep 2
+done > "$PANEL_FIFO" &
+
 if [ -d /sys/class/power_supply/BAT1 ]; then
     while :; do
     echo 'B'$(battery)
@@ -84,7 +93,7 @@ fi
 
 . dotfiles/bar/panel_colors
 
-dotfiles/bar/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+dotfiles/bar/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" -f '-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1' | sh &
 
 wid=$(xdo id -a "$PANEL_WM_NAME")
 tries_left=20
