@@ -16,11 +16,12 @@ localfolders = ~/.mail/bartlomiej.kruczyk.at.gmail.com
 nametrans = lambda folder: {'drafts': '[Gmail]/Wersje robocze',
                             'sent':   '[Gmail]/Wys&AUI-ane',
                             'starred':'[Gmail]/Oznaczone gwiazdk&AQU-',
-                            'trash':  '[Gmail]/Kosz'
+                            'trash':  '[Gmail]/Kosz',
+                            'archive': '[Gmail]/Wszystkie'
                             }.get(folder, folder)
 
 [Repository Remote]
-readonly=True
+# readonly=True
 maxconnections = 1
 type = Gmail
 remoteuser = bartlomiej.kruczyk@gmail.com
@@ -31,9 +32,9 @@ nametrans = lambda folder: {'[Gmail]/Wersje robocze': 'drafts',
                             '[Gmail]/Wys&AUI-ane': 'sent',
                             '[Gmail]/Oznaczone gwiazdk&AQU-': 'starred',
                             '[Gmail]/Kosz': 'trash',
+                            '[Gmail]/Wszystkie': 'archive'
                             }.get(folder, folder)
 
-folderfilter = lambda folder: folder not in ['[Gmail]/Wszystkie',
-                                             '[Gmail]/Wa&AXw-ne',
+folderfilter = lambda folder: folder not in ['[Gmail]/Wa&AXw-ne',
                                              '[Gmail]/Spam',
                                              '[Gmail]/Czat']

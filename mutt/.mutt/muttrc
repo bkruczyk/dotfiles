@@ -24,12 +24,6 @@ set beep_new             # bell on new mails
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
 
-# Sidebar Patch --------------------------------------
-set sidebar_delim   = '  │'
-set sidebar_visible = yes
-set sidebar_width   = 24
-color sidebar_new white black
-
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
@@ -71,11 +65,6 @@ macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to s
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-
-# Sidebar Navigation ---------------------------------
-bind index,pager <down>   sidebar-next
-bind index,pager <up>     sidebar-prev
-bind index,pager <right>  sidebar-open
 
 # Pager View Options ---------------------------------
 set pager_index_lines = 10 # number of index lines to show
