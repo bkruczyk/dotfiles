@@ -9,6 +9,8 @@ localrepository = Local
 remoterepository = Remote
 status_backend = sqlite
 postsynchook = notmuch new
+autorefresh=1
+quick=12
 
 [Repository Local]
 type = Maildir
@@ -28,6 +30,8 @@ remoteuser = bartlomiej.kruczyk@gmail.com
 remotepasseval = get_pass("bartlomiej.kruczyk@gmail.com")
 realdelete = no
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+keepalive=120
+holdconnectionopen=yes
 nametrans = lambda folder: {'[Gmail]/Wersje robocze': 'drafts',
                             '[Gmail]/Wys&AUI-ane': 'sent',
                             '[Gmail]/Oznaczone gwiazdk&AQU-': 'starred',
