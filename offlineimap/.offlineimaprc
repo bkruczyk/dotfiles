@@ -5,16 +5,16 @@ fsync = False
 pythonfile=~/.offlineimap.py
 
 [Account Gmail]
-localrepository = Local
-remoterepository = Remote
+localrepository = GmailLocal
+remoterepository = GmailRemote
 status_backend = sqlite
 postsynchook = notmuch new
 autorefresh=1
 quick=12
 
-[Repository Local]
+[Repository GmailLocal]
 type = Maildir
-localfolders = ~/.mail/bartlomiej.kruczyk.at.gmail.com
+localfolders = ~/.mail/gmail
 nametrans = lambda folder: {'drafts': '[Gmail]/Wersje robocze',
                             'sent':   '[Gmail]/Wys&AUI-ane',
                             'starred':'[Gmail]/Oznaczone gwiazdk&AQU-',
@@ -22,7 +22,7 @@ nametrans = lambda folder: {'drafts': '[Gmail]/Wersje robocze',
                             'archive': '[Gmail]/Wszystkie'
                             }.get(folder, folder)
 
-[Repository Remote]
+[Repository GmailRemote]
 # readonly=True
 maxconnections = 1
 type = Gmail
