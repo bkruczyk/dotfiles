@@ -10,6 +10,10 @@ super + {minus,plus}
 super + {c,v}
 	bspc node -{f,s} next
 
+# change split orientation
+super + n
+        bspc node @parent -R 90
+
 # # focus the next/previous node
 # super + {j,k}
 # 	bspc node -f {prev,next}
