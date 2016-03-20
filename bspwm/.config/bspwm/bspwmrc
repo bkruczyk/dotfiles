@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# bspc config focused_border_color "#0a9dff"
-bspc config focused_border_color "#ff9eb8"
+bspc config focused_border_color "#0a9dff"
+# bspc config focused_border_color "#ff9eb8"
 
 bspc config border_width         6
 bspc config window_gap           24
