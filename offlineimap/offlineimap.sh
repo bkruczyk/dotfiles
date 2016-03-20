@@ -5,6 +5,10 @@ if [ -z $1 ] || [ -z $2 ]; then
     exit 1
 fi
 
+echo -e "\n\E[35m==> Running full sync.\E[0m\n"
+offlineimap -o -l ~/.offlineimap.log
+sleep $1
+
 i=0
 
 while :; do

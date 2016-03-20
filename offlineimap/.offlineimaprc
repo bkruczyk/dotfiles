@@ -8,9 +8,7 @@ pythonfile=~/.offlineimap/offlineimap.py
 localrepository = GmailLocal
 remoterepository = GmailRemote
 status_backend = sqlite
-postsynchook = notmuch new
-autorefresh=1
-quick=12
+postsynchook = ~/.notmuch.sh
 
 [Repository GmailLocal]
 type = Maildir
@@ -28,10 +26,8 @@ maxconnections = 1
 type = Gmail
 remoteusereval = get_username("gmail")
 remotepasseval = get_password("gmail")
-realdelete = no
+realdelete = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-keepalive=120
-holdconnectionopen=yes
 nametrans = lambda folder: {'[Gmail]/Wersje robocze': 'drafts',
                             '[Gmail]/Wys&AUI-ane': 'sent',
                             '[Gmail]/Oznaczone gwiazdk&AQU-': 'starred',
