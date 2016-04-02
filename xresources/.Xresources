@@ -4,7 +4,7 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
-rofi.font: tewi 9
+rofi.font: fixed medium semicondensed 10
 rofi.lines: 10
 rofi.width: 24
 rofi.hide-scrollbar: true
