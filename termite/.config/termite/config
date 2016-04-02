@@ -31,12 +31,7 @@ color8  = #666462
 color1  = #ff2c4b
 color9  = #ff2c4b
 
-
-# # green (saltwatertaffy)
-# color2  = #8cffba
-# color10 = #8cffba
-
-# green (bottle)
+# green
 color2  = #34B068
 color10 = #34B068
 
@@ -47,10 +42,6 @@ color11 = #f4cf86
 # blue orange
 color4  = #ffa724
 color12 = #ffa724
-
-# # true blue
-# color4  = #0a9dff
-# color12 = #0a9dff
 
 # magenta
 color5  = #ff9eb8
