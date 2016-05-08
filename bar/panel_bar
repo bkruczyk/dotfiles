@@ -14,7 +14,7 @@ while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			sys=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?}%{B-}%{F-} "
+			sys=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG}${line#?}%{B-}%{F-} "
 			;;
 		T*)
 			# xtitle output
@@ -22,18 +22,18 @@ while read -r line ; do
 			;;
                 V*)
                         # pamixer output
-                        volume=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG}%{A5:pamixer -d 5:}%{A4:pamixer -i 5:} vol: %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}${line#?}%%{A}%{A}%{B-}%{F-} "
+                        volume=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG}%{A5:pamixer -d 5:}%{A4:pamixer -i 5:}vol: %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}${line#?}%%{A}%{A}%{B-}%{F-} "
                         ;;
                 N*)
                         # network output
-                        network=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} net: %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}${line#?}%{B-}%{F-} "
+                        network=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG}net: %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}${line#?}%{B-}%{F-} "
                         ;;
                 B*)
                         # battery output
                         status=$(get 'status' "${line#?}")
                         power=$(get 'power' "${line#?}")
 
-                        battery=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} bat: "
+                        battery=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG}pow: "
 
                         if [ $status -gt 20 ]; then
                             battery=$battery"%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}"
@@ -49,14 +49,8 @@ while read -r line ; do
 
                         battery=$battery"$status%%{B-}%{F-} "
                         ;;
-                C*)     # cpu output
-                        cpu=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} cpu: %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}${line#?}%%{B-}%{F-} "
-                        ;;
-                M*)     # mem output
-                        memory=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} mem: %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}${line#?}%%{B-}%{F-} "
-                        ;;
                 I*)     # inbox output
-                        inbox=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} mail: "
+                        inbox=" %{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG}mail: "
 
                         if [ ${line#?} -gt 0 ]; then
                             inbox=$inbox"%{F$COLOR_FOCUSED_URGENT_BG}%{B$COLOR_SYS_BG}"
@@ -135,5 +129,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}%{c}${title}%{r}${inbox}${cpu}${memory}${network}${volume}${battery}${sys}"
+	printf "%s\n" "%{l}${wm}%{c}${title}%{r}${inbox}${network}${volume}${battery}${sys}"
 done
