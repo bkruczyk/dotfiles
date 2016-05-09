@@ -3,6 +3,7 @@ Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
 
 rofi.font: fixed medium semicondensed 10
 rofi.lines: 10
