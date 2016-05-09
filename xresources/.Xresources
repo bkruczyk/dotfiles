@@ -5,7 +5,7 @@ Xft.hinting:    true
 Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 
-rofi.font: fixed medium semicondensed 10
+rofi.font: tewi 8
 rofi.lines: 10
 rofi.width: 24
 rofi.hide-scrollbar: true
