@@ -1,3 +1,11 @@
+# set stacking layer to above
+super + a
+        bspc node -l above
+
+# set stacking layer to below
+super + u
+        bspc node -l below
+
 # lock screen
 super + ctrl + Escape
         slock
