@@ -8,7 +8,7 @@ super + {minus,plus}
 
 # focus/move to the next node
 super + {c,v}
-	bspc node -{f,s} next
+	bspc node -{f,s} next.local
 
 # change split orientation
 super + n
@@ -63,7 +63,7 @@ super + y
 
 # swap the current node and the biggest node
 super + g
-	bspc node -s biggest
+	bspc node -s biggest.local
 
 #
 # state/flags
