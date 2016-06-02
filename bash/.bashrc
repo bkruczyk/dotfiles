@@ -68,7 +68,7 @@ alias gl='git log --pretty=oneline --abbrev-commit'
 alias gi='git status'
 
 ## arch
-alias a='pacaur'
+alias y='yaourt'
 
 # userscripts
 export PATH=~/bin:$PATH
