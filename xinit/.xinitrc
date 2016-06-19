@@ -9,11 +9,8 @@ xrdb -load .Xresources
 
 setxkbmap -layout pl -option terminate:ctrl_alt_bksp -option ctrl:nocaps
 
-sxhkd &
-
 xsetroot -cursor_name left_ptr &
 unclutter &
-feh --bg-scale dotfiles/wall.jpg
+feh --bg-scale ~/Obrazy/download5.jpe
 
-
-exec bspwm
+exec xmonad

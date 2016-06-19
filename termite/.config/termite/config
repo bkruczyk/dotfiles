@@ -9,51 +9,80 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = tewi 8
+font = Monaco 9
 scrollback_lines = 10000
 search_wrap = true
 # geometry = 640x480
 cursor_blink = off
 cursor_shape = block
 
-# Badwolf alternate take
 [colors]
-foreground      = #f8f6f2
-foreground_bold = #f8f6f2
-cursor          = #0a9dff
-background      = #1c1b1a
+foreground = #ECE8CF
+background = #2D2D2D
+cursor =     #ff8939
+#black
+color0 =     #393939
+color8 =     #474747
+#red
+color1 =     #EE9379
+color9 =     #FF8D80
+#green
+color2 =     #E2FFC7
+color10 =    #DBFFB3
+#yellow
+color3 =     #FFFFB9
+color11 =    #FFBE64
+#blue
+color4 =     #EDE7B4
+color12 =    #E15848
+#magenta
+color5 =     #E2BEB5
+color13 =    #94C7B5
+#cyan
+color6 =     #6EB49D
+color14 =    #A2C3CC
+#white
+color7 =     #dddddd
+color15 =    #dddddd
 
-# black
-color0  = #1c1b1a
-color8  = #666462
+# # Badwolf alternate take
+# [colors]
+# foreground      = #f8f6f2
+# foreground_bold = #f8f6f2
+# cursor          = #0a9dff
+# background      = #1c1b1a
 
-# red
-color1  = #ff2c4b
-color9  = #ff2c4b
+# # black
+# color0  = #1c1b1a
+# color8  = #666462
 
-# green
-color2  = #34B068
-color10 = #34B068
+# # red
+# color1  = #ff2c4b
+# color9  = #ff2c4b
 
-# yellow
-color3  = #f4cf86
-color11 = #f4cf86
+# # green
+# color2  = #34B068
+# color10 = #34B068
 
-# blue orange
-color4  = #ffa724
-color12 = #ffa724
+# # yellow
+# color3  = #f4cf86
+# color11 = #f4cf86
 
-# magenta
-color5  = #ff9eb8
-color13 = #ff9eb8
+# # blue orange
+# color4  = #ffa724
+# color12 = #ffa724
 
-# cyan
-color6  = #0a9dff
-color14 = #0a9dff
+# # magenta
+# color5  = #ff9eb8
+# color13 = #ff9eb8
 
-# white
-color7  = #f8f6f2
-color15 = #d9cec3
+# # cyan
+# color6  = #0a9dff
+# color14 = #0a9dff
+
+# # white
+# color7  = #f8f6f2
+# color15 = #d9cec3
 
 # Local Variables:
 # eval: (conf-mode)

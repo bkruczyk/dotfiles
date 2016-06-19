@@ -1,13 +1,14 @@
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintslight
-Xft.lcdfilter:  lcddefault
+Xft.antialias: 1
+Xft.autohint: 0
+Xft.dpi: 96
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
 
-rofi.font: tewi 8
+rofi.font: Monaco 9
 rofi.lines: 10
-rofi.width: 24
+rofi.width: 32
 rofi.hide-scrollbar: true
 rofi.color-window: #242321, #35322d
 rofi.color-normal: #242321, #f8f6f2, #35322d, #0a9dff, #f8f6f2
