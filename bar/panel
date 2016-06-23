@@ -41,10 +41,8 @@ inbox() {
     notmuch search tag:unread | wc -l
 }
 
-bspc config top_padding $PANEL_HEIGHT
-bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
-# clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
+
 while :; do
     echo 'S'$(date '+%Y-%m-%d %H:%M')
     sleep 1
@@ -75,14 +73,5 @@ fi
 . dotfiles/bar/panel_colors
 
 dotfiles/bar/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" -f '-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1' | sh &
-
-wid=$(xdo id -a "$PANEL_WM_NAME")
-tries_left=20
-while [ -z "$wid" -a "$tries_left" -gt 0 ] ; do
-	sleep 0.05
-	wid=$(xdo id -a "$PANEL_WM_NAME")
-	tries_left=$((tries_left - 1))
-done
-[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
 
 wait

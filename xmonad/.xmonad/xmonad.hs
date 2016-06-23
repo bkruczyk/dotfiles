@@ -1,19 +1,25 @@
 import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.DynamicLog
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig ( additionalKeys )
 
-myLayoutHook = spacing 4 $ avoidStruts $ layoutHook defaultConfig
-myManageHook = manageDocks <+> manageHook defaultConfig
+myLayoutHook = spacing 4 $ avoidStruts $ layoutHook def
+myManageHook = manageDocks <+> manageHook def
 myModMask = mod4Mask
 myKeys = [ ((myModMask , xK_r), spawn "rofi -show run")
          , ((myModMask , xK_e), spawn "rofi -show window")
          ]
+myLogHook h = dynamicLogWithPP $ defaultPP
+  {
+
+  }
+
 
 main :: IO()
 main = do
-  xmonad $ ewmh defaultConfig
+  xmonad $ ewmh def
     { terminal           = "termite"
     , focusFollowsMouse  = True
     , modMask            = myModMask
