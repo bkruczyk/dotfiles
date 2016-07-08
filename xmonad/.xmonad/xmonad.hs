@@ -5,16 +5,17 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig ( additionalKeys )
 
-myLayoutHook = spacing 4 $ avoidStruts $ layoutHook def
+myLayoutHook = spacing 16 $ avoidStruts $ layoutHook def
 myManageHook = manageDocks <+> manageHook def
 myModMask = mod4Mask
 myKeys = [ ((myModMask , xK_r), spawn "rofi -show run")
-         , ((myModMask , xK_e), spawn "rofi -show window")
+         , ((myModMask , xK_p), spawn "rofi -show window")
+         , ((myModMask .|. shiftMask, xK_l), spawn "slock")
          ]
-myLogHook h = dynamicLogWithPP $ defaultPP
-  {
-
-  }
+-- myLogHook h = dynamicLogWithPP $ defaultPP
+--   {
+--
+--   }
 
 
 main :: IO()

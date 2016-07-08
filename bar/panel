@@ -37,8 +37,12 @@ battery() {
     echo -n "$ac $status"
 }
 
+desktop() {
+    xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'
+}
+
 inbox() {
-    notmuch search tag:unread | wc -l
+    notmuch count tag:unread
 }
 
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
@@ -70,8 +74,24 @@ if [ -d /sys/class/power_supply/BAT1 ]; then
     done > "$PANEL_FIFO" &
 fi
 
+while :; do
+    echo 'D'$(desktop)
+    sleep 0.2
+done > "$PANEL_FIFO" &
+
 . dotfiles/bar/panel_colors
 
-dotfiles/bar/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" -f '-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1' | sh &
+# dotfiles/bar/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g 450x$PANEL_HEIGHT+1458+12 -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+
+dotfiles/bar/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+
+wid=$(xdo id -a "$PANEL_WM_NAME")
+tries_left=20
+while [ -z "$wid" -a "$tries_left" -gt 0 ] ; do
+	sleep 0.05
+	wid=$(xdo id -a "$PANEL_WM_NAME")
+	tries_left=$((tries_left - 1))
+done
+[ -n "$wid" ] && xdo above -t "$(xdo id -N 2bwm -n root | sort | head -n 1)" "$wid"
 
 wait

@@ -1,19 +1,95 @@
-Xft.antialias: 1
-Xft.autohint: 0
+! Xft.lcdfilter: lcddefault
+! Xft.autohint: 0
 Xft.dpi: 96
-Xft.hinting: 1
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
 
-rofi.font: Monaco 9
+rofi.font: terminus 8
 rofi.lines: 10
-rofi.width: 32
+rofi.width: 24
 rofi.hide-scrollbar: true
 rofi.color-window: #242321, #35322d
-rofi.color-normal: #242321, #f8f6f2, #35322d, #0a9dff, #f8f6f2
-rofi.color-active: #ff9eb8, #f8f6f2, #35322d, #0a9dff, #f8f6f2
-rofi.color-urgent: #ff2c4b, #f8f6f2, #35322d, #0a9dff, #f8f6f2
+rofi.color-normal: #242321, #f8f6f2, #242321, #0a9dff, #f8f6f2
+rofi.color-active: #ff9eb8, #f8f6f2, #242321, #0a9dff, #f8f6f2
+rofi.color-urgent: #ff2c4b, #f8f6f2, #242321, #0a9dff, #f8f6f2
+
+URxvt*termName: xterm-256color
+
+! do not scroll with output
+URxvt.scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt.scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt.scrollTtyKeypress: true
+
+! scroll in less etc.
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! font
+! URxvt.font: xft:monaco:size=9
+! URxvt.letterSpace: -2
+URxvt.font: -xos4-terminus-medium-*-normal-*-*-*-72-72-*-*-iso8859-2
+
+! perls
+URxvt.perl-ext-common: default,matcher
+
+! clickable urls
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+!  turn off scrollbar
+URxvt.scrollBar: false
+
+! padding
+URxvt.internalBorder: 8
+
+! scroll buffer size
+URxvt.saveLines: 512
+
+! colors
+
+! special
+*.foreground:   #f8f6f2
+*.background:   #242321
+*.borderColor:  #242321
+*.cursorColor:  #0a9dff
+
+! black
+*.color0:       #242321
+*.color8:       #666462
+
+! red
+*.color1:       #ff2c4b
+*.color9:       #ff2c4b
+
+! green
+*.color2:       #34b068
+*.color10:      #34b068
+
+! yellow
+*.color3:       #f4cf86
+*.color11:      #f4cf86
+
+! blue
+*.color4:       #0a9dff
+*.color12:      #0a9dff
+
+! magenta
+*.color5:       #ff9eb8
+*.color13:      #ff9eb8
+
+! cyan
+*.color6:       #ab82ff
+*.color14:      #ab82ff
+
+! white
+*.color7:       #f8f6f2
+*.color15:      #d9cec3
 
 ! Local Variables:
 ! eval: (conf-xdefaults-mode)

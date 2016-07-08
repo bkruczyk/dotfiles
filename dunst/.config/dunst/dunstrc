@@ -1,5 +1,5 @@
 [global]
-    font = tewi 9
+    font = terminus 8
 
     # Allow a small subset of html markup in notifications and formats:
     #   <b>bold</b>
@@ -24,7 +24,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "%s\n%b"
 
     # Sort messages by urgency.
     sort = yes
@@ -67,7 +67,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x20-30+20"
+    geometry = "300x36-36+72"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -155,7 +155,7 @@
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [frame]
-    width = 2
+    width = 0
     color = "#0a9dff"
 
 # [shortcuts]
@@ -182,17 +182,17 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1c1b1a"
+    background = "#35322d"
     foreground = "#f8f6f2"
     timeout = 10
 
 [urgency_normal]
-    background = "#1c1b1a"
+    background = "#35322d"
     foreground = "#f8f6f2"
     timeout = 10
 
 [urgency_critical]
-    background = "#1c1b1a"
+    background = "#35322d"
     foreground = "#f8f6f2"
     timeout = 0
 

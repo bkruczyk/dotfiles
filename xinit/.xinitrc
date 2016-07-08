@@ -10,7 +10,12 @@ xrdb -load .Xresources
 setxkbmap -layout pl -option terminate:ctrl_alt_bksp -option ctrl:nocaps
 
 xsetroot -cursor_name left_ptr &
-unclutter &
-feh --bg-scale ~/Obrazy/download5.jpe
+# unclutter &
+feh --bg-scale dotfiles/wall.jpg
+# xrandr --output HDMI1 --primary --left-of LVDS1
+dotfiles/bar/panel &
+# compton -b
 
-exec xmonad
+bin/2bwm/2bwm &
+
+exec urxvt

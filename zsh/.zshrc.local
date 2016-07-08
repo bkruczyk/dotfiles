@@ -1,6 +1,6 @@
 source ~/.bashrc
 
-setopt incappendhistory
+# setopt incappendhistory
 setopt histignoredups
 setopt histreduceblanks
 
