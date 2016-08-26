@@ -6,16 +6,16 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 xrdb -load .Xresources
-
 setxkbmap -layout pl -option terminate:ctrl_alt_bksp -option ctrl:nocaps
-
 xsetroot -cursor_name left_ptr &
 # unclutter &
 feh --bg-scale dotfiles/wall.jpg
-# xrandr --output HDMI1 --primary --left-of LVDS1
+# xrandr --output HDMI1 --primary --output --left-of LVDS1
+xrandr --output HDMI1 --primary --output LVDS1 --off
 dotfiles/bar/panel &
-# compton -b
+compton -b
+sxhkd &> .sxhkd.log &
 
-bin/2bwm/2bwm &
-
-exec urxvt
+# opt/2bwm/2bwm &
+# urxvt
+exec runfyre

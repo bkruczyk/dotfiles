@@ -19,7 +19,7 @@ static const uint8_t offsets[] = {0,36,0,36};
  *2)fixedcol         3)unkilcol
  *4)fixedunkilcol    5)outerbordercol
  *6)emptycol         */
-static const char *colors[] = {"#ff2c4b","#857f78","#ffa724","#0a9dff","#ff9eb8","#0d131a","#000000"};
+static const char *colors[] = {"#0a9dff","#857f78","#ff2c4b","#ffa724","#ff9eb8","#0d131a","#000000"};
 /*
  * If you are using a composition manager enable the COMPTON flag in the Makefile
  * (By changing -DNCOMPTON to -DCOMPTON)
@@ -41,9 +41,9 @@ static const uint8_t borders[] = {3,5,5,4};
 #define LOOK_INTO "WM_NAME"
 static const char *ignore_names[] = {"bar", "xclock"};
 ///--Menus and Programs---///
-static const char *menucmd[]   = { "/usr/bin/rofi-show-run.sh", NULL };
-static const char *gmrun[]     = { "/usr/bin/rofi-show-run.sh",NULL};
-static const char *windows[]   = { "/usr/bin/rofi-show-window.sh", NULL };
+static const char *menucmd[]   = { "/usr/bin/rofi", "-show", "run", NULL };
+static const char *gmrun[]     = { "/usr/bin/rofi", "-show", "run", NULL};
+static const char *windows[]   = { "/usr/bin/rofi", "-show", "window", NULL };
 static const char *slock[]     = { "/usr/bin/slock", NULL };
 static const char *terminal[]  = { "/usr/bin/urxvt", NULL };
 static const char *volup[]     = { "/usr/bin/pamixer", "-i", "5", NULL };
@@ -189,8 +189,8 @@ static key keys[] = {
     {  MOD |SHIFT,        XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT}},
     // Start programs
     {  MOD ,              XK_Return,     start,             {.com = terminal}},
-    {  MOD ,              XK_w,          start,             {.com = menucmd}},
-    {  MOD ,              XK_e,          start,             {.com = windows}},
+    {  MOD ,              XK_e,          start,             {.com = menucmd}},
+    {  MOD ,              XK_w,          start,             {.com = windows}},
     {  MOD |SHIFT,        XK_s,          start,             {.com = slock}},
     {  MOD |SHIFT,        XK_w,          start,             {.com = gmrun}},
     {  MOD |SHIFT,        XK_equal,      start,             {.com = volup}},

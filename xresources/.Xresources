@@ -33,8 +33,11 @@ URxvt.secondaryScroll: 0
 ! font
 ! URxvt.font: xft:monaco:size=9
 ! URxvt.letterSpace: -2
-URxvt.font: -xos4-terminus-medium-*-normal-*-*-*-72-72-*-*-iso8859-2
-
+URxvt.font: xft:DejaVu\ Sans\ Mono:size=9
+URxvt.letterSpace: -2
+! URxvt.font: -xos4-terminus-medium-*-normal-*-*-*-72-72-*-*-iso8859-2
+! URxvt.font: xft:Drift:size=8
+! URxvt.boldFont: xft:Drift:size=8
 ! perls
 URxvt.perl-ext-common: default,matcher
 

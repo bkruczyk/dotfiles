@@ -1,0 +1,7 @@
+#!/bin/sh
+
+pamixer -d 5
+
+# Local Variables:
+# major-mode: sh
+# End:
