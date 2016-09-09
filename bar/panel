@@ -41,6 +41,30 @@ desktop() {
     xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'
 }
 
+groups() {
+    # ALL=$(windows -l | grep 'group.' | sed 's/[^0-9]//g' | tr '\n' ',' | sed 's/.$//')
+    GROUPS=$(windows -l | grep 'group.' | sed 's/[^0-9]//g')
+    ACTIVE_WID=$(windows -f $(pfw) | grep -o .$)
+    GROUPS_DIR=/tmp/fyre/groups
+    INACTIVE=""
+    ACTIVE=""
+
+    if [ -f "$GROUPS_DIR/inactive" ]; then
+        INACTIVE=$(cat /tmp/fyre/groups/inactive)
+    fi
+
+    if [ -f "$GROUPS_DIR/active" ]; then
+        ACTIVE=$(cat /tmp/fyre/groups/active)
+    fi
+
+    if [ -z "$ACTIVE_WID" ]
+    then
+        ACTIVE_WID="X"
+    fi
+
+    echo "$ACTIVE_WID:$ACTIVE:$INACTIVE"
+}
+
 inbox() {
     notmuch count tag:unread
 }
@@ -76,6 +100,11 @@ fi
 
 while :; do
     echo 'D'$(desktop)
+    sleep 0.2
+done > "$PANEL_FIFO" &
+
+while :; do
+    echo 'G'$(groups)
     sleep 0.2
 done > "$PANEL_FIFO" &
 

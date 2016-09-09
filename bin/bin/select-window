@@ -1,0 +1,16 @@
+#!/bin/sh
+
+i=0
+
+windows="$(for win in $(lsw)
+do
+        echo $win '  ' $(xdotool getwindowname $win)
+        i=$((i+1))
+done)"
+active=$(($(echo "$windows" | grep -n $(pfw) | grep -o '^.')-1))
+# echo "$windows"
+# echo "$active"
+
+selected=$(echo "$windows" | rofi -a "'$active'" -dmenu -i)
+
+focus -w "$selected"

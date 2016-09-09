@@ -13,13 +13,13 @@ static const float    resize_keep_aspect_ratio= 1.03;
 ///---Offsets---///
 /*0)offsetx          1)offsety
  *2)maxwidth         3)maxheight */
-static const uint8_t offsets[] = {0,36,0,36};
+static const uint8_t offsets[] = {12,48,24,60};
 ///---Colors---///
 /*0)focuscol         1)unfocuscol
  *2)fixedcol         3)unkilcol
  *4)fixedunkilcol    5)outerbordercol
  *6)emptycol         */
-static const char *colors[] = {"#0a9dff","#857f78","#ff2c4b","#ffa724","#ff9eb8","#0d131a","#000000"};
+static const char *colors[] = {"#0a9dff","#d9cec3","#ff2c4b","#ffa724","#ff9eb8","#242321","#242321"};
 /*
  * If you are using a composition manager enable the COMPTON flag in the Makefile
  * (By changing -DNCOMPTON to -DCOMPTON)
@@ -36,14 +36,12 @@ static const bool inverted_colors = true;
 /*0) Outer border size. If you put this negative it will be a square.
  *1) Full borderwidth    2) Magnet border size
  *3) Resize border size  */
-static const uint8_t borders[] = {3,5,5,4};
+static const uint8_t borders[] = {6,6,6,6};
 /* Windows that won't have a border.*/
 #define LOOK_INTO "WM_NAME"
 static const char *ignore_names[] = {"bar", "xclock"};
 ///--Menus and Programs---///
 static const char *menucmd[]   = { "/usr/bin/rofi", "-show", "run", NULL };
-static const char *gmrun[]     = { "/usr/bin/rofi", "-show", "run", NULL};
-static const char *windows[]   = { "/usr/bin/rofi", "-show", "window", NULL };
 static const char *slock[]     = { "/usr/bin/slock", NULL };
 static const char *terminal[]  = { "/usr/bin/urxvt", NULL };
 static const char *volup[]     = { "/usr/bin/pamixer", "-i", "5", NULL };
@@ -96,25 +94,25 @@ static key keys[] = {
     // Kill a window
     {  MOD ,              XK_q,          deletewin,         {}},
     // Resize a window
-    {  MOD |ALT,          XK_k,          resizestep,        {.i=TWOBWM_RESIZE_UP}},
-    {  MOD |ALT,          XK_j,          resizestep,        {.i=TWOBWM_RESIZE_DOWN}},
-    {  MOD |ALT,          XK_l,          resizestep,        {.i=TWOBWM_RESIZE_RIGHT}},
-    {  MOD |ALT,          XK_h,          resizestep,        {.i=TWOBWM_RESIZE_LEFT}},
-    // Resize a window slower
-    {  MOD |ALT|CONTROL,  XK_k,          resizestep,        {.i=TWOBWM_RESIZE_UP_SLOW}},
-    {  MOD |ALT|CONTROL,  XK_j,          resizestep,        {.i=TWOBWM_RESIZE_DOWN_SLOW}},
-    {  MOD |ALT|CONTROL,  XK_l,          resizestep,        {.i=TWOBWM_RESIZE_RIGHT_SLOW}},
-    {  MOD |ALT|CONTROL,  XK_h,          resizestep,        {.i=TWOBWM_RESIZE_LEFT_SLOW}},
+    {  MOD ,          XK_w,          resizestep,        {.i=TWOBWM_RESIZE_UP}},
+    {  MOD ,          XK_s,          resizestep,        {.i=TWOBWM_RESIZE_DOWN}},
+    {  MOD ,          XK_d,          resizestep,        {.i=TWOBWM_RESIZE_RIGHT}},
+    {  MOD ,          XK_a,          resizestep,        {.i=TWOBWM_RESIZE_LEFT}},
+    /* // Resize a window slower */
+    /* {  MOD |ALT|CONTROL,  XK_k,          resizestep,        {.i=TWOBWM_RESIZE_UP_SLOW}}, */
+    /* {  MOD |ALT|CONTROL,  XK_j,          resizestep,        {.i=TWOBWM_RESIZE_DOWN_SLOW}}, */
+    /* {  MOD |ALT|CONTROL,  XK_l,          resizestep,        {.i=TWOBWM_RESIZE_RIGHT_SLOW}}, */
+    /* {  MOD |ALT|CONTROL,  XK_h,          resizestep,        {.i=TWOBWM_RESIZE_LEFT_SLOW}}, */
     // Move a window
     {  MOD ,              XK_k,          movestep,          {.i=TWOBWM_MOVE_UP}},
     {  MOD ,              XK_j,          movestep,          {.i=TWOBWM_MOVE_DOWN}},
     {  MOD ,              XK_l,          movestep,          {.i=TWOBWM_MOVE_RIGHT}},
     {  MOD ,              XK_h,          movestep,          {.i=TWOBWM_MOVE_LEFT}},
     // Move a window slower
-    {  MOD |CONTROL,      XK_k,          movestep,          {.i=TWOBWM_MOVE_UP_SLOW}},
-    {  MOD |CONTROL,      XK_j,          movestep,          {.i=TWOBWM_MOVE_DOWN_SLOW}},
-    {  MOD |CONTROL,      XK_l,          movestep,          {.i=TWOBWM_MOVE_RIGHT_SLOW}},
-    {  MOD |CONTROL,      XK_h,          movestep,          {.i=TWOBWM_MOVE_LEFT_SLOW}},
+    /* {  MOD |CONTROL,      XK_k,          movestep,          {.i=TWOBWM_MOVE_UP_SLOW}}, */
+    /* {  MOD |CONTROL,      XK_j,          movestep,          {.i=TWOBWM_MOVE_DOWN_SLOW}}, */
+    /* {  MOD |CONTROL,      XK_l,          movestep,          {.i=TWOBWM_MOVE_RIGHT_SLOW}}, */
+    /* {  MOD |CONTROL,      XK_h,          movestep,          {.i=TWOBWM_MOVE_LEFT_SLOW}}, */
     // Teleport the window to an area of the screen.
     // Center:
     {  MOD ,              XK_g,          teleport,          {.i=TWOBWM_TELEPORT_CENTER}},
@@ -123,13 +121,13 @@ static key keys[] = {
     /* // Center x: */
     /* {  MOD |CONTROL,      XK_g,          teleport,          {.i=TWOBWM_TELEPORT_CENTER_X}}, */
     // Top left:
-    {  MOD ,              XK_y,          teleport,          {.i=TWOBWM_TELEPORT_TOP_LEFT}},
+    {  MOD |ALT,              XK_y,          teleport,          {.i=TWOBWM_TELEPORT_TOP_LEFT}},
     // Top right:
-    {  MOD ,              XK_u,          teleport,          {.i=TWOBWM_TELEPORT_TOP_RIGHT}},
+    {  MOD |ALT,              XK_u,          teleport,          {.i=TWOBWM_TELEPORT_TOP_RIGHT}},
     // Bottom left:
-    {  MOD ,              XK_b,          teleport,          {.i=TWOBWM_TELEPORT_BOTTOM_LEFT}},
+    {  MOD |ALT,              XK_b,          teleport,          {.i=TWOBWM_TELEPORT_BOTTOM_LEFT}},
     // Bottom right:
-    {  MOD ,              XK_n,          teleport,          {.i=TWOBWM_TELEPORT_BOTTOM_RIGHT}},
+    {  MOD |ALT,              XK_n,          teleport,          {.i=TWOBWM_TELEPORT_BOTTOM_RIGHT}},
     /* // Resize while keeping the window aspect */
     /* {  MOD ,              XK_Home,       resizestep_aspect, {.i=TWOBWM_RESIZE_KEEP_ASPECT_GROW}}, */
     /* {  MOD ,              XK_End,        resizestep_aspect, {.i=TWOBWM_RESIZE_KEEP_ASPECT_SHRINK}}, */
@@ -143,13 +141,13 @@ static key keys[] = {
     {  MOD |ALT,          XK_m,          maxvert_hor,       {.i=TWOBWM_MAXIMIZE_HORIZONTALLY}},
     // Maximize and move
     // vertically left
-    {  MOD |ALT,          XK_y,          maxhalf,           {.i=TWOBWM_MAXHALF_VERTICAL_LEFT}},
+    {  MOD ,          XK_y,          maxhalf,           {.i=TWOBWM_MAXHALF_VERTICAL_LEFT}},
     // vertically right
-    {  MOD |ALT,          XK_u,          maxhalf,           {.i=TWOBWM_MAXHALF_VERTICAL_RIGHT}},
+    {  MOD ,          XK_u,          maxhalf,           {.i=TWOBWM_MAXHALF_VERTICAL_RIGHT}},
     // horizontally left
-    {  MOD |ALT,          XK_b,          maxhalf,           {.i=TWOBWM_MAXHALF_HORIZONTAL_BOTTOM}},
+    {  MOD ,          XK_b,          maxhalf,           {.i=TWOBWM_MAXHALF_HORIZONTAL_BOTTOM}},
     // horizontally right
-    {  MOD |ALT,          XK_n,          maxhalf,           {.i=TWOBWM_MAXHALF_HORIZONTAL_TOP}},
+    {  MOD ,          XK_n,          maxhalf,           {.i=TWOBWM_MAXHALF_HORIZONTAL_TOP}},
     /* //fold half vertically */
     /* {  MOD |SHIFT|CONTROL,XK_y,          maxhalf,           {.i=TWOBWM_MAXHALF_FOLD_VERTICAL}}, */
     /* //fold half horizontally */
@@ -172,7 +170,7 @@ static key keys[] = {
     // Iconify the window
     {  MOD ,              XK_i,          hide,              {}},
     // Make the window unkillable
-    {  MOD ,              XK_a,          unkillable,        {}},
+    {  MOD ,              XK_z,          unkillable,        {}},
     // Make the window appear always on top
     {  MOD,               XK_t,          always_on_top,     {}},
     // Make the window stay on all workspaces
@@ -189,10 +187,8 @@ static key keys[] = {
     {  MOD |SHIFT,        XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT}},
     // Start programs
     {  MOD ,              XK_Return,     start,             {.com = terminal}},
-    {  MOD ,              XK_e,          start,             {.com = menucmd}},
-    {  MOD ,              XK_w,          start,             {.com = windows}},
-    {  MOD |SHIFT,        XK_s,          start,             {.com = slock}},
-    {  MOD |SHIFT,        XK_w,          start,             {.com = gmrun}},
+    {  MOD |ALT,          XK_Return,     start,             {.com = menucmd}},
+    {  MOD |CONTROL,      XK_l,          start,             {.com = slock}},
     {  MOD |SHIFT,        XK_equal,      start,             {.com = volup}},
     {  MOD |SHIFT,        XK_minus,      start,             {.com = voldown}},
     // Exit or restart 2bwm

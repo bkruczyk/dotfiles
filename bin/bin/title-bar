@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# makes title-bar toggle
+if xdo id -a "$TITLE_BAR_WM_NAME" > /dev/null ; then
+    xdo kill -a "$TITLE_BAR_WM_NAME"
+    exit 0;
+fi
+
+GROUPS_DIR=/tmp/fyre/groups
+
+. ~/dotfiles/bar/panel_colors
+
+i=0
+while [ $i -lt $1 ]; do
+    PFW=$(pfw)
+
+    if [ -z "$PFW" ]; then
+        exit 0;
+    fi
+
+    ACTIVE_WID=$(windows -f $PFW | grep -o .$)
+
+    if [ -z "$ACTIVE_WID" ]; then
+        ACTIVE_WID="X"
+    fi
+
+    echo "%{c}" "%{F$COLOR_FOCUSED_OCCUPIED_BG}%{B$COLOR_TITLE_BG}" "$ACTIVE_WID" "%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG}/%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG}" "$(xdotool getwindowname $PFW)"
+    sleep 0.1
+    i=$((i + 1))
+done | lemonbar -a 32 -n "$TITLE_BAR_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+
+ignw -s $(xdo id -a "$TITLE_BAR_WM_NAME")

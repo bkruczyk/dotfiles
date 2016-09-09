@@ -1,0 +1,62 @@
+#!/bin/sh
+
+group=""
+list=""
+
+for i in $(windows -l)
+do
+    x=$(echo "$i" | grep -o "group.[0-9]")
+
+    if [ ! -z "$x" ]
+    then
+        group=$(echo $x | grep -o ".$")
+    else
+        append="$i $group $(xdotool getwindowname $i)"
+        list="$list$append\n"
+    fi
+done
+
+for i in $(lsw)
+do
+    x=$(echo "$list" | grep $i)
+
+    if [ -z "$x" ]
+    then
+        append="$i X $(xdotool getwindowname $i)"
+        list="$list$append\n"
+    fi
+done
+
+PFW=$(pfw)
+IFS=$'\n'; mapped=""; current=-1; j=0
+for i in $(echo -ne "$list")
+do
+    wid=$(echo "$i" | cut -f1 -d ' ')
+
+    if [ ! -z "$PFW" ]; then
+        if [ "$PFW" = "$wid" ] ; then
+            current=$j
+        fi
+    fi
+
+    # rofi can't handle active and urgent rows at same time
+    if wattr m $wid ; then
+        if [ $current -ne $j ] ; then
+            mapped="$j,$mapped"
+        fi
+    fi
+
+    j=$((j + 1))
+done
+mapped=$(echo $mapped | sed 's/.$//')
+
+line=$(echo -ne "$list" | rofi -dmenu -i -u "$current" -a "$mapped")
+selected_wid=$(echo "$line" | cut -f1 -d ' ')
+selected_group=$(echo "$line" | cut -f2 -d ' ')
+
+if [ ! "$selected_group" = "X" ]
+then
+    windows -s "$selected_group" 2>/dev/null
+fi
+
+focus -w "$selected_wid" 2>/dev/null

@@ -10,6 +10,9 @@ super + shift + minus
 super + r
     rofi -show run
 
+super + e
+    select2
+
 super + bracketleft
       xdotool mousemove_relative -- -10 0
 
@@ -32,10 +35,13 @@ super + alt + minus
       xdotool click 2
 
 mod4 + o
-    focus -w $(lsw|sed '1!d')
+      focus --next
 
 mod4 + p
      windows -z $(windows -f $(pfw) | grep -o .$)
+
+mod4 + z
+     title-bar 100000
 
 mod4 + x
      fullscreen
@@ -44,6 +50,9 @@ mod4 + shift + x
      fullscreen $(pfw) 2
 
 mod4 + f
+     focus -w $(lsw|sed '$!d')
+
+mod4 + shift + h
      hover
 
 # reload sxhkd
@@ -74,8 +83,11 @@ mod4 + {w,a,s,d}
 # mod4 + {g,h,j,k,l}
 #     snap {--middle,--left,--down,--up,--right}
 # snap the window to the corners and middle of screen 2
-mod4 + {g,y,u,b,n}
-    snap {--middle,--topleft,--topright,--bottomleft,--bottomright}
+mod4 + g
+    snap --middle
+
+mod4 + alt + {y,u,b,n}
+    snap {--topleft,--topright,--bottomleft,--bottomright}
 
 # handy shortcuts to place window in a useful position
 # mod1 + {q,w,e,r,a,s,b}
@@ -83,7 +95,7 @@ mod4 + {g,y,u,b,n}
 # position the current window relatively on new screen
 # mod1 + {z,x,c}
 #     position {--screen 1,--screen 2,--screen 3}
-mod4 + {q,e,t}
+mod4 + {y,u,t}
     position {--left,--right,--fuller}
 
 # fullscreen the current window on current screen
@@ -106,7 +118,7 @@ mod4 + shift + {1,2,3,4,5,6,7,8,9,0}
 mod4 + {1,2,3,4,5,6,7,8,9,0}
     windows -T {1,2,3,4,5,6,7,8,9,0}
 
-alt + super + {1,2,3,4,5,6,7,8,9,0}
+mod4 + mod1 + {1,2,3,4,5,6,7,8,9,0}
     windows -m {1,2,3,4,5,6,7,8,9,0}
 
 # clean current window from group
@@ -129,14 +141,14 @@ mod4 + shift + c
 #     hover
 
 # here's johnny!
-mod4 + shift + q
+mod4 + q
     winkill $(pfw)
 
 # handy script to control fyre
 # see sourcefyre.zsh to source fyre functions into your shell
-mod4 + shift + e
+mod4 + control + l
     power -l
-mod4 + mod1 + {q,e,r}
+mod4 + control + {q,e,r}
     power -{p,e,r}
 
 # focus the window underneath the cursor with middle mouse

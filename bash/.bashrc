@@ -1,12 +1,12 @@
 # less
 export LESS='--ignore-case --squeeze-blank-lines --RAW-CONTROL-CHARS --no-init --LONG-PROMPT'
-export LESS_TERMCAP_mb=$'\E[35m'           # begin blinking
-export LESS_TERMCAP_md=$'\E[35m'           # begin bold
+export LESS_TERMCAP_mb=$'\E[34m'           # begin blinking
+export LESS_TERMCAP_md=$'\E[34m'           # begin bold
 export LESS_TERMCAP_me=$'\E[0m'            # end mode
 export LESS_TERMCAP_se=$'\E[0m'            # end standout-mode
 export LESS_TERMCAP_so=$'\E[43;30m'        # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'            # end underline
-export LESS_TERMCAP_us=$'\E[31m'           # begin underline
+export LESS_TERMCAP_us=$'\E[35m'           # begin underline
 
 # aliases
 
@@ -63,7 +63,8 @@ alias chgrp='chgrp --preserve-root'
 alias e="emacsclient -t -a '' $@"
 
 ## git
-alias gt='git log --graph --decorate --pretty=oneline --abbrev-commit'
+alias gt="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+# alias gt='git log --graph --decorate --pretty=oneline --abbrev-commit'
 alias gl='git log --pretty=oneline --abbrev-commit'
 alias gi='git status'
 

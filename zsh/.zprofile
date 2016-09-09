@@ -2,7 +2,7 @@ sudo loadkeys ~/.loadkeys
 
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_FONT="-lucy-tewi-medium-r-normal-*-*-*-100-100-*-*-*-*"
-PANEL_FONT="-xos4-terminus-medium-*-normal-*-*-*-72-72-*-*-iso8859-2"
+PANEL_FONT="-xos4-terminus-medium-*-normal-*-*-*-72-72-*-*-iso8859-13"
 PANEL_HEIGHT=36
 PANEL_WM_NAME=lemonbar_panel
 
@@ -17,3 +17,5 @@ if [ -z $SSH_AUTH_SOCK ]; then
     eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK
 fi
+
+export INFINALITY_FT="ultimate5"

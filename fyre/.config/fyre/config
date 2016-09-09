@@ -1,0 +1,51 @@
+#!/bin/sh
+#
+# configuration variables for fyre
+# place in $HOME/.config/fyre/config by default
+
+    # REQUIRED
+################################################################################
+
+# set border colours for windows
+ACTIVE="ff9eb8"
+WARNING="B23450" # not currently used anywhere but might be in the future
+INACTIVE="857f78"
+
+# border width
+BW=6
+
+# grid based snapping
+ROWS=12
+COLS=12
+
+# to get a pixel perfect gaps:
+# these variables need to be divisible by the values of ROWS and COLS
+IGAP=12
+VGAP=12
+TGAP=48
+XGAP=12
+BGAP=12
+
+# mouse automatically gets moved to the middle of the window
+MOUSE="true"
+
+# moving over windows automatically focuses them
+SLOPPY="true"
+
+# set to workspaces or groups -- not finished yet so it defaults to groups
+WORKFLOW="groups"
+
+    # OPTIONAL
+################################################################################
+
+# set path to your background - omit if you don't want fyre to manage your wall
+WALL="$HOME/dotfiles/wall.jpg"
+
+# set integer factor to blur background by if wall program uses it
+BLUR=0
+
+# call your background program with arguments if WALL is used
+BACK="hsetroot -fill $WALL"
+
+# set location of synergy configuration file
+SYNCONF=${SYNCONF:-$HOME/.synergy.conf}

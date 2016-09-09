@@ -6,14 +6,14 @@ Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
 
-rofi.font: terminus 8
+rofi.font: monaco 9
 rofi.lines: 10
-rofi.width: 24
+rofi.width: 36
 rofi.hide-scrollbar: true
-rofi.color-window: #242321, #35322d
-rofi.color-normal: #242321, #f8f6f2, #242321, #0a9dff, #f8f6f2
-rofi.color-active: #ff9eb8, #f8f6f2, #242321, #0a9dff, #f8f6f2
-rofi.color-urgent: #ff2c4b, #f8f6f2, #242321, #0a9dff, #f8f6f2
+rofi.color-window: #242321, #998f84
+rofi.color-normal: #242321, #998f84, #242321, #242321, #0a9dff
+rofi.color-active: #242321, #f8f6f2, #242321, #242321, #0a9dff
+rofi.color-urgent: #242321, #ffa724, #242321, #242321, #0a9dff
 
 URxvt*termName: xterm-256color
 
@@ -31,10 +31,9 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 ! font
-! URxvt.font: xft:monaco:size=9
-! URxvt.letterSpace: -2
-URxvt.font: xft:DejaVu\ Sans\ Mono:size=9
+URxvt.font: xft:Monaco:size=9
 URxvt.letterSpace: -2
+! URxvt.font: xft:DejaVu\ Sans\ Mono:size=9
 ! URxvt.font: -xos4-terminus-medium-*-normal-*-*-*-72-72-*-*-iso8859-2
 ! URxvt.font: xft:Drift:size=8
 ! URxvt.boldFont: xft:Drift:size=8
@@ -71,24 +70,24 @@ URxvt.saveLines: 512
 *.color9:       #ff2c4b
 
 ! green
-*.color2:       #34b068
-*.color10:      #34b068
+*.color2:       #3cb371
+*.color10:      #3cb371
 
 ! yellow
 *.color3:       #f4cf86
 *.color11:      #f4cf86
 
 ! blue
-*.color4:       #0a9dff
-*.color12:      #0a9dff
+*.color4:       #4169e1
+*.color12:      #4169e1
 
 ! magenta
 *.color5:       #ff9eb8
 *.color13:      #ff9eb8
 
 ! cyan
-*.color6:       #ab82ff
-*.color14:      #ab82ff
+*.color6:       #00bfff
+*.color14:      #00bfff
 
 ! white
 *.color7:       #f8f6f2
