@@ -1,0 +1,61 @@
+# -*- sh -*-
+
+# utilities
+genpasswd() {
+    tr -dc A-Za-z0-9_ < /dev/urandom | head -c $1 | xargs # requires an argument
+}
+
+mkcd() {
+    mkdir -p $1; cd $1
+}
+
+# modified commands
+alias ls='ls --color -hFG'
+alias diff='colordiff'              # requires colordiff package
+alias grep='grep --color=auto --ignore-case'
+alias more='less'
+alias df='df -h'
+alias du='du -c -h'
+alias mkdir='mkdir -p -v'
+alias nano='nano -w'
+alias ping='ping -c 5'
+alias ..='cd ..'
+
+# new commands
+alias da='date "+%A, %B %d, %Y [%T]"'
+alias du1='du --max-depth=1'
+alias hist='history | grep $1'      # requires an argument
+
+# privileged access
+if [ $UID -ne 0 ]; then
+    alias sudo='sudo '
+    alias scat='sudo cat'
+    alias svim='sudo vim'
+    alias root='sudo su'
+    alias reboot='sudo reboot'
+    alias halt='sudo halt'
+    alias netcfg='sudo netcfg2'
+    alias netstat='sudo netstat'
+fi
+
+# ls
+alias lr='ls -R'                    # recursive ls
+alias ll='ls -l'
+alias la='ll -A'
+alias lx='ll -BX'                   # sort by extension
+alias lz='ll -rS'                   # sort by size
+alias lt='ll -rt'                   # sort by date
+alias lm='la | more'
+
+# safety features
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'                    # 'rm -i' prompts for every file
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# git
+alias gt="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gi='git status'
