@@ -1,16 +1,13 @@
 # -*- sh -*-
 
 # utilities
-genpasswd() {
-    tr -dc A-Za-z0-9_ < /dev/urandom | head -c $1 | xargs # requires an argument
-}
-
 mkcd() {
     mkdir -p $1; cd $1
 }
+alias genpasswd='pwgen -y $1 1'     # requires pwgen package
 
 # modified commands
-alias ls='ls --color -hFG'
+alias ls='ls -hFG'
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto --ignore-case'
 alias more='less'
