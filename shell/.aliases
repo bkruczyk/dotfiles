@@ -4,7 +4,9 @@
 mkcd() {
     mkdir -p $1; cd $1
 }
-alias genpasswd='pwgen -y $1 1'     # requires pwgen package
+genpasswd() {
+    pwgen -y 20 1     # requires pwgen packag
+}
 
 # modified commands
 alias ls='ls -hFG'
@@ -52,7 +54,3 @@ alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
-
-# git
-alias gt="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gi='git status'

@@ -11,10 +11,9 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
+# requires pure prompt
+# https://github.com/sindresorhus/pure
 prompt pure
-
-# complete aliases
-setopt COMPLETE_ALIASES
 
 # open up a completion menu
 zstyle ':completion:*' menu select
@@ -28,6 +27,9 @@ bindkey -e                              # use emacs keybindings (default)
 bindkey "\ee" edit-command-line         # <escape-e> opens EDITOR
 bindkey '\em' copy-prev-shell-word      # <escape-m> duplicate last word
 bindkey '^[[Z' reverse-menu-complete    # <backtab> to go backwards through completions
+
+# complete aliases
+setopt COMPLETE_ALIASES
 
 # history
 setopt APPEND_HISTORY
