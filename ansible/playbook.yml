@@ -3,16 +3,21 @@
 - hosts: all
 
   tasks:
-    - name: get pure prompt
-      git:
-        repo: https://github.com/sindresorhus/pure.git
-        dest: $HOME/.pure
+    - name: install packages
+      package:
+        name: git
+        state: present
 
     - name: create zfunctions directory
       file:
         state: directory
         path: $HOME/.zfunctions
         mode: 755
+
+    - name: clone pure prompt
+      git:
+        repo: https://github.com/sindresorhus/pure.git
+        dest: $HOME/.local/pure
 
     - name: install pure prompt
       file:
@@ -23,16 +28,29 @@
         - { src: async.zsh, dest: async }
         - { src: pure.zsh, dest: prompt_pure_setup }
 
-    - name: get dotfiles
+    - name: clone dotfiles
       git:
         repo: https://github.com/bkruczyk/dotfiles.git
-        dest: $HOME/.dotfiles
+        dest: $HOME/.local/dotfiles
 
     - name: stow configs
       shell: |
         stow -d $HOME/.dotfiles -t $HOME bin shell tmux xresources zsh && touch $HOME/.stow
       args:
         creates: $HOME/.stow
+
+      - name: symlink configs
+        file:
+          src: $HOME/.local/dotfiles/{{ item.name }}/{{ item.path }}
+          dest: $HOME/{{ item.path }}
+          state: link
+          with_items:
+            - { name: shell, path: .aliases }
+            - { name: shell, path: .env }
+            - { name: shell, path: .lesskey }
+            - { name: shell, path: .loadkeys }
+            -
+        
 
     - name: set zsh as shell
       shell: |
