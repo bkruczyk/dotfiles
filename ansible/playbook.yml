@@ -5,14 +5,16 @@
   tasks:
     - name: install packages
       package:
-        name: git
+        name: "{{ item }}"
         state: present
+      with_items:
+        - git
+        - zsh
 
     - name: create zfunctions directory
       file:
         state: directory
         path: $HOME/.zfunctions
-        mode: 755
 
     - name: clone pure prompt
       git:
@@ -33,26 +35,21 @@
         repo: https://github.com/bkruczyk/dotfiles.git
         dest: $HOME/.local/dotfiles
 
-    - name: stow configs
-      shell: |
-        stow -d $HOME/.dotfiles -t $HOME bin shell tmux xresources zsh && touch $HOME/.stow
-      args:
-        creates: $HOME/.stow
-
-      - name: symlink configs
-        file:
-          src: $HOME/.local/dotfiles/{{ item.name }}/{{ item.path }}
-          dest: $HOME/{{ item.path }}
-          state: link
-          with_items:
-            - { name: shell, path: .aliases }
-            - { name: shell, path: .env }
-            - { name: shell, path: .lesskey }
-            - { name: shell, path: .loadkeys }
-            -
+    - name: symlink configs
+      file:
+        src: $HOME/.local/dotfiles/{{ item.name }}/{{ item.path }}
+        dest: $HOME/{{ item.path }}
+        state: link
+      with_items:
+        - { name: shell, path: .aliases }
+        - { name: shell, path: .env }
+        - { name: shell, path: .lesskey }
+        - { name: shell, path: .loadkeys }
+        - { name: tmux, path: .tmux.conf }
+        - { name: xresources, path: .Xresources }
+        - { name: zsh, path: .zshrc }
         
-
     - name: set zsh as shell
       shell: |
-        chsh -s /bin/zsh $(whoami)
+        chsh -s /bin/zsh {{ ansible_env.USER }}
       when: ansible_facts['user_shell'] != "/bin/zsh"
