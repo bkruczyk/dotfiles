@@ -1,18 +1,15 @@
-if [ -d "$HOME/.zfunctions" ]; then
-    fpath=( "$HOME/.zfunctions" $fpath )
-fi
+# requires pure prompt https://github.com/sindresorhus/pure
+fpath=( "{{ zsh.pure }}" $fpath )
 
-source $HOME/.env
-source $HOME/.lesskey
-source $HOME/.aliases
+source {{ shell.env }}
+source {{ shell.lesskey }}
+source {{ shell.aliases }}
 
 # completion and prompt
 autoload -Uz compinit promptinit
 compinit
 promptinit
 
-# requires pure prompt
-# https://github.com/sindresorhus/pure
 prompt pure
 
 # open up a completion menu

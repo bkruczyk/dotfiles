@@ -1,0 +1,10 @@
+---
+
+- name: install shell configs
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: env.j2,   dest: "{{ shell.env }}" }
+    - { src: lesskey,  dest: "{{ shell.lesskey }}" }
+    - { src: aliases,  dest: "{{ shell.aliases }}" }

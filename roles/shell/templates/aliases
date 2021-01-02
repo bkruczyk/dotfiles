@@ -5,11 +5,11 @@ mkcd() {
     mkdir -p $1; cd $1
 }
 genpasswd() {
-    pwgen -y 20 1     # requires pwgen packag
+    pwgen -y 20 1     # requires pwgen package
 }
 
 # modified commands
-alias ls='ls -hFG'
+alias ls='ls {{ ls_colorized_output }} -hF'
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto --ignore-case'
 alias more='less'

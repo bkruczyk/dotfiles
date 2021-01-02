@@ -1,3 +1,0 @@
-#!/bin/bash
-
-find . -name "*.pdf" | xargs basename -s .pdf | xargs -I{} convert -density 150 {}.pdf -quality 90 -resize 80% {}.png

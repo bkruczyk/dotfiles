@@ -1,0 +1,16 @@
+---
+
+- name: install zsh
+  package:
+    name: zsh
+    state: present
+
+- name: clone pure prompt
+  git:
+    repo: https://github.com/sindresorhus/pure.git
+    dest: "{{ zsh.pure }}"
+
+- name: install zshrc
+  template:
+    src: zshrc.j2
+    dest: "{{ zsh.zshrc }}"
