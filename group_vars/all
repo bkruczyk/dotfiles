@@ -15,3 +15,6 @@ zsh:
 
 tmux:
   conf: "{{ home_path }}/.tmux.conf"
+
+intellij:
+  ideavimrc: "{{ home_path }}/.ideavimrc"

@@ -1,0 +1,6 @@
+---
+
+- name: ideavimrc file
+  copy:
+    src: ideavimrc
+    dest: "{{ intellij.ideavimrc }}"
