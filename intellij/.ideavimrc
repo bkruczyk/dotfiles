@@ -1,0 +1,75 @@
+let mapleader = " "
+
+set ideajoin
+set commentary
+set multiple-cursors
+set surround
+
+set visualbell
+set noerrorbells
+
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+set clipboard+=unnamed
+set scrolloff=3
+
+" doc
+nnoremap <leader>sp :action ParameterInfo<CR>
+nnoremap <leader>sq :action QuickJavaDoc<CR>
+
+" editor
+nnoremap <leader>y  :action PasteMultiple<CR>
+nnoremap <leader>uh :action LocalHistory.ShowHistory<CR>
+
+" refactoring
+nnoremap <leader>oi :action OptimizeImports<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+vmap     <leader>rn :action RenameElement<CR>
+nnoremap <leader>rf :action RenameFile<CR>
+vmap     <leader>rf :action RenameFile<CR>
+nnoremap <leader>ri :action Inline<CR>
+vmap     <leader>ri :action Inline<CR>
+nnoremap <leader>rv :action IntroduceVariable<CR>
+vmap     <leader>rv :action IntroduceVariable<CR>
+nnoremap <leader>rm :action ExtractMethod<CR>
+vmap     <leader>rm :action ExtractMethod<CR>
+nnoremap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+vmap     <leader>rr :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>rp :action IntroduceParameter<CR>
+vmap     <leader>rp :action IntroduceParameter<CR>
+nnoremap <leader>im :action ImplementMethods<CR>
+nnoremap <leader>om :action OverrideMethods<CR>
+nnoremap <leader>qf :action ShowIntentionActions<CR>
+nnoremap <leader>=  :action ReformatCode<CR>
+
+" goto
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap <leader>gi :action GotoImplementation<CR>
+nnoremap <leader>gs :action ActivateStructureToolWindow<CR>
+
+" find
+nnoremap <leader>fs :action GotoSymbol<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fc :action GotoClass<CR>
+nnoremap <leader>fa :action GotoAction<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+vmap     <leader>fg :action FindInPath<CR>
+nnoremap <leader>fr :action ReplaceInPath<CR>
+vmap     <leader>fr :action ReplaceInPath<CR>
+
+" tests
+nnoremap <leader>gt :action GotoTest<CR>
+nnoremap <leader>tn :action RunClass<CR>
+nnoremap <leader>tl :action Rerun<CR>
+nnoremap <leader>tf :action RerunFailedTests<CR>
+
+" jump to
+nnoremap ]c :action GotoNextError<cr>
+nnoremap [c :action GotoPreviousError<cr>
+nnoremap <leader>se :action ShowErrorDescription<cr>
+nnoremap ]h :action VcsShowNextChangeMarker<cr>
+nnoremap [h :action VcsShowPrevChangeMarker<cr>

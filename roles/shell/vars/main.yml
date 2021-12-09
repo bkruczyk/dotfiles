@@ -1,1 +1,0 @@
-ls_colorized_output: "{{ (ansible_os_family == 'Darwin') | ternary('-G', '--color') }}"

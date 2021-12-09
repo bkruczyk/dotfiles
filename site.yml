@@ -1,9 +1,0 @@
----
-
-- name: setup local environment
-  hosts: all
-
-  roles:
-    - shell
-    - zsh
-    - intellij

@@ -9,7 +9,12 @@ genpasswd() {
 }
 
 # modified commands
-alias ls='ls {{ ls_colorized_output }} -hF'
+if [[ $OSTYPE = "darwin"* ]]; then
+    alias ls='ls -G -hF'
+else
+    alias ls='ls --color -hF'
+fi
+
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto --ignore-case'
 alias more='less'

@@ -1,16 +1,11 @@
-# requires pure prompt https://github.com/sindresorhus/pure
-fpath=( "{{ zsh.pure }}" $fpath )
-
-source {{ shell.env }}
-source {{ shell.lesskey }}
-source {{ shell.aliases }}
+source $HOME/.env
+source $HOME/.aliases
+source $HOME/.lesskey
 
 # completion and prompt
 autoload -Uz compinit promptinit
 compinit
 promptinit
-
-prompt pure
 
 # open up a completion menu
 zstyle ':completion:*' menu select
