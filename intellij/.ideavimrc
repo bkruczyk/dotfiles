@@ -1,6 +1,8 @@
 let mapleader = " "
 
 set ideajoin
+set idearefactormode=keep
+
 set commentary
 set multiple-cursors
 set surround
@@ -14,15 +16,25 @@ set ignorecase
 set smartcase
 
 set clipboard+=unnamed
+set clipboard+=ideaput
+
 set scrolloff=3
 
-" doc
+imap <C-q> <Action>(QuickJavaDoc)
+
+" movement
+nnoremap <C-j> :action EditorEnter<CR>
+inoremap <C-j> <CR>
+
+" show
 nnoremap <leader>sp :action ParameterInfo<CR>
 nnoremap <leader>sq :action QuickJavaDoc<CR>
+nnoremap <leader>se :action ShowErrorDescription<CR>
 
 " editor
-nnoremap <leader>y  :action PasteMultiple<CR>
-nnoremap <leader>uh :action LocalHistory.ShowHistory<CR>
+nnoremap <leader>y         :action PasteMultiple<CR>
+nnoremap <leader>uh        :action LocalHistory.ShowHistory<CR>
+noremap <C-[> :noh<CR>
 
 " refactoring
 nnoremap <leader>oi :action OptimizeImports<CR>
@@ -47,11 +59,11 @@ nnoremap <leader>=  :action ReformatCode<CR>
 
 " goto
 nnoremap gd :action GotoDeclaration<CR>
-nnoremap gr :action FindUsages<CR>
+nnoremap <leader>gu :action FindUsages<CR>
 nnoremap <leader>gi :action GotoImplementation<CR>
 nnoremap <leader>gs :action ActivateStructureToolWindow<CR>
 
-" find
+" actions
 nnoremap <leader>fs :action GotoSymbol<CR>
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fc :action GotoClass<CR>
@@ -63,13 +75,12 @@ vmap     <leader>fr :action ReplaceInPath<CR>
 
 " tests
 nnoremap <leader>gt :action GotoTest<CR>
-nnoremap <leader>tn :action RunClass<CR>
+nnoremap <leader>tr :action RunClass<CR>
 nnoremap <leader>tl :action Rerun<CR>
 nnoremap <leader>tf :action RerunFailedTests<CR>
 
 " jump to
-nnoremap ]c :action GotoNextError<cr>
-nnoremap [c :action GotoPreviousError<cr>
-nnoremap <leader>se :action ShowErrorDescription<cr>
-nnoremap ]h :action VcsShowNextChangeMarker<cr>
-nnoremap [h :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action GotoNextError<CR>
+nnoremap [c :action GotoPreviousError<CR>
+nnoremap ]h :action VcsShowNextChangeMarker<CR>
+nnoremap [h :action VcsShowPrevChangeMarker<CR>
