@@ -20,7 +20,8 @@ set clipboard+=ideaput
 
 set scrolloff=3
 
-imap <C-q> <Action>(QuickJavaDoc)
+imap     <C-q> <Action>(QuickJavaDoc)
+nnoremap <C-q> :action QuickJavaDoc<CR>
 
 " movement
 nnoremap <C-j> :action EditorEnter<CR>
